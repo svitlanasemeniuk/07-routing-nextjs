@@ -1,25 +1,20 @@
 import Link from 'next/link';
-import css from '@/components/SidebarNotes/SidebarNotes.module.css'; // Шлях до стилів
+import css from '../../../../components/SidebarNotes/SidebarNotes.module.css';
 
 const tags = ['Todo', 'Work', 'Personal', 'Meeting', 'Shopping'];
 
 export default function SidebarNotes() {
     return (
         <ul className={css.menuList}>
-            {/* Статичне посилання для всіх нотаток */}
             <li className={css.menuItem}>
-                <Link href="/notes/filter/all" className={css.menuLink}>
+                <Link href="/notes/filter/all" className={css.link}>
                     All notes
                 </Link>
             </li>
 
-            {/* Динамічна генерація посилань для кожного тегу */}
             {tags.map((tag) => (
-                <li key={tag} className={css.link}>
-                    <Link
-                        href={`/notes/filter/${tag}`}
-                        className={css.menuLink}
-                    >
+                <li key={tag} className={css.menuItem}>
+                    <Link href={`/notes/filter/${tag}`} className={css.link}>
                         {tag}
                     </Link>
                 </li>
